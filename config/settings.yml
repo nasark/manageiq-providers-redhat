@@ -1,0 +1,84 @@
+---
+:ems:
+  :ems_redhat:
+    :consoles:
+      :html5_enabled: false
+    :resolve_ip_addresses: true
+    :inventory:
+      :read_timeout: 1.hour
+      :open_timeout: 1.minute
+    :service:
+      :read_timeout: 1.hour
+      :open_timeout: 1.minute
+    :blacklisted_event_names: []
+  :ems_ovirt:
+    :event_handling:
+      :event_groups:
+        :console:
+          :critical:
+          - VM_CONSOLE_CONNECTED
+          - VM_CONSOLE_DISCONNECTED
+          - VM_SET_TICKET
+          - VM_SET_TICKET_FAILED
+        :network:
+          :critical:
+          - network.create.end
+          - network.delete.end
+          - network.update.end
+          - subnet.create.end
+          - subnet.delete.end
+          - subnet.update.end
+          - floatingip.create.end
+          - floatingip.delete.end
+          - floatingip.update.end
+          - network.floating_ip.allocate
+          - network.floating_ip.deallocate
+          - network.floating_ip.associate
+          - network.floating_ip.disassociate
+          - router.create.end
+          - router.delete.end
+          - router.interface.create
+          - router.interface.delete
+          - router.update.end
+          - security_group.create.end
+          - security_group.delete.end
+          - security_group.update.end
+    :connection_manager:
+      :purge_interval: 1.hour
+:http_proxy:
+  :rhevm:
+    :host:
+    :password:
+    :port:
+    :user:
+:ems_refresh:
+  :rhevm:
+    :pipeline: 40
+    :connections: 10
+    :allow_targeted_refresh: true
+  :redhat_network:
+    :is_admin: false
+:log:
+  :level_rhevm: info
+:workers:
+  :worker_base:
+    :event_catcher:
+      :event_catcher_redhat:
+        :poll: 15.seconds
+      :event_catcher_redhat_network:
+        :poll: 15.seconds
+        :topics:
+          :neutron: "notifications.*"
+        :duration: 10.seconds
+        :capacity: 50
+        :amqp_port: 5672
+        :amqp_heartbeat: 30
+        :amqp_recovery_attempts: 4
+        :ceilometer:
+          :event_types_regex: '\A(firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn)'
+    :queue_worker_base:
+      :ems_metrics_collector_worker:
+        :ems_metrics_collector_worker_redhat: {}
+      :ems_refresh_worker:
+        :ems_refresh_worker_redhat: {}
+        :ems_refresh_worker_redhat_network: {}

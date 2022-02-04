@@ -1,0 +1,152 @@
+---
+https://pluto-vdsg.eng.lab.tlv.redhat.com:443/ovirt-engine/api/hosts/11089411-53a2-4337-8613-7c1d411e8ae8{}GET:
+- :body: ''
+  :code: 404
+  :headers:
+    date: Wed, 28 Aug 2019 18:12:33 GMT
+    server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips
+    content-length: '0'
+    correlation-id: dd28c250-cc13-4857-8a2a-8705739a3dc6
+  :message: 
+- :body: ''
+  :code: 404
+  :headers:
+    date: Wed, 28 Aug 2019 18:12:38 GMT
+    server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips
+    content-length: '0'
+    correlation-id: 142a275b-40fb-497e-a1d6-720a665d0ddb
+  :message: 
+https://pluto-vdsg.eng.lab.tlv.redhat.com:443/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193{}GET:
+- :body: |
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <cluster href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193" id="b875154c-5b87-4068-aa3f-f32c4d672193">
+        <actions>
+            <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/resetemulatedmachine" rel="resetemulatedmachine"/>
+            <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/upgrade" rel="upgrade"/>
+            <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/syncallnetworks" rel="syncallnetworks"/>
+        </actions>
+        <name>newc</name>
+        <description></description>
+        <comment></comment>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/affinitygroups" rel="affinitygroups"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/glusterhooks" rel="glusterhooks"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/glustervolumes" rel="glustervolumes"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/enabledfeatures" rel="enabledfeatures"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/externalnetworkproviders" rel="externalnetworkproviders"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/cpuprofiles" rel="cpuprofiles"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/networkfilters" rel="networkfilters"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/networks" rel="networks"/>
+        <link href="/ovirt-engine/api/clusters/b875154c-5b87-4068-aa3f-f32c4d672193/permissions" rel="permissions"/>
+        <ballooning_enabled>false</ballooning_enabled>
+        <cpu>
+            <architecture>x86_64</architecture>
+            <type>Intel Broadwell Family</type>
+        </cpu>
+        <custom_scheduling_policy_properties>
+            <property>
+                <name>HighUtilization</name>
+                <value>80</value>
+            </property>
+            <property>
+                <name>CpuOverCommitDurationMinutes</name>
+                <value>2</value>
+            </property>
+        </custom_scheduling_policy_properties>
+        <error_handling>
+            <on_error>migrate</on_error>
+        </error_handling>
+        <fencing_policy>
+            <enabled>true</enabled>
+            <skip_if_connectivity_broken>
+                <enabled>false</enabled>
+                <threshold>50</threshold>
+            </skip_if_connectivity_broken>
+            <skip_if_gluster_bricks_up>false</skip_if_gluster_bricks_up>
+            <skip_if_gluster_quorum_not_met>false</skip_if_gluster_quorum_not_met>
+            <skip_if_sd_active>
+                <enabled>false</enabled>
+            </skip_if_sd_active>
+        </fencing_policy>
+        <firewall_type>firewalld</firewall_type>
+        <gluster_service>false</gluster_service>
+        <ha_reservation>false</ha_reservation>
+        <ksm>
+            <enabled>false</enabled>
+            <merge_across_nodes>true</merge_across_nodes>
+        </ksm>
+        <log_max_memory_used_threshold>95</log_max_memory_used_threshold>
+        <log_max_memory_used_threshold_type>percentage</log_max_memory_used_threshold_type>
+        <memory_policy>
+            <over_commit>
+                <percent>100</percent>
+            </over_commit>
+            <transparent_hugepages>
+                <enabled>true</enabled>
+            </transparent_hugepages>
+        </memory_policy>
+        <migration>
+            <auto_converge>inherit</auto_converge>
+            <bandwidth>
+                <assignment_method>auto</assignment_method>
+            </bandwidth>
+            <compressed>inherit</compressed>
+        </migration>
+        <required_rng_sources>
+            <required_rng_source>urandom</required_rng_source>
+        </required_rng_sources>
+        <switch_type>legacy</switch_type>
+        <threads_as_cores>false</threads_as_cores>
+        <trusted_service>false</trusted_service>
+        <tunnel_migration>false</tunnel_migration>
+        <version>
+            <major>4</major>
+            <minor>2</minor>
+        </version>
+        <virt_service>true</virt_service>
+        <data_center href="/ovirt-engine/api/datacenters/2812e1c2-fb19-4bf9-ac42-74c069a5e507" id="2812e1c2-fb19-4bf9-ac42-74c069a5e507"/>
+        <mac_pool href="/ovirt-engine/api/macpools/58ca604b-017d-0374-0220-00000000014e" id="58ca604b-017d-0374-0220-00000000014e"/>
+        <scheduling_policy href="/ovirt-engine/api/schedulingpolicies/b4ed2332-a7ac-4d5f-9596-99a439cb2812" id="b4ed2332-a7ac-4d5f-9596-99a439cb2812"/>
+    </cluster>
+  :code: 200
+  :headers:
+    date: Wed, 28 Aug 2019 18:12:38 GMT
+    server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips
+    content-encoding: gzip
+    content-type: application/xml;charset=UTF-8
+    content-length: '1186'
+    correlation-id: 196a5d11-cefc-4c83-bf48-d7ae8d691b32
+  :message: 
+https://pluto-vdsg.eng.lab.tlv.redhat.com:443/ovirt-engine/api/vnicprofiles{}GET:
+- :body: |
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <vnic_profiles>
+        <vnic_profile href="/ovirt-engine/api/vnicprofiles/52ac0668-d782-4079-bd2e-c3fafea0c858" id="52ac0668-d782-4079-bd2e-c3fafea0c858">
+            <name>ovirtmgmt</name>
+            <link href="/ovirt-engine/api/vnicprofiles/52ac0668-d782-4079-bd2e-c3fafea0c858/permissions" rel="permissions"/>
+            <pass_through>
+                <mode>disabled</mode>
+            </pass_through>
+            <port_mirroring>false</port_mirroring>
+            <network href="/ovirt-engine/api/networks/b6a660fd-f1ff-4d26-b535-91fae6d42a3f" id="b6a660fd-f1ff-4d26-b535-91fae6d42a3f"/>
+            <network_filter href="/ovirt-engine/api/networkfilters/5a55d534-0151-0329-0198-00000000039d" id="5a55d534-0151-0329-0198-00000000039d"/>
+        </vnic_profile>
+        <vnic_profile href="/ovirt-engine/api/vnicprofiles/4ec7ba24-c6bf-42fc-9975-d6a9bf3f01cf" id="4ec7ba24-c6bf-42fc-9975-d6a9bf3f01cf">
+            <name>ovirtmgmt</name>
+            <link href="/ovirt-engine/api/vnicprofiles/4ec7ba24-c6bf-42fc-9975-d6a9bf3f01cf/permissions" rel="permissions"/>
+            <pass_through>
+                <mode>disabled</mode>
+            </pass_through>
+            <port_mirroring>false</port_mirroring>
+            <network href="/ovirt-engine/api/networks/f46b7c46-6196-4750-a07f-bfeab9f1c275" id="f46b7c46-6196-4750-a07f-bfeab9f1c275"/>
+            <network_filter href="/ovirt-engine/api/networkfilters/5a55d534-0151-0329-0198-00000000039d" id="5a55d534-0151-0329-0198-00000000039d"/>
+        </vnic_profile>
+    </vnic_profiles>
+  :code: 200
+  :headers:
+    date: Wed, 28 Aug 2019 18:12:39 GMT
+    server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips
+    content-encoding: gzip
+    content-type: application/xml;charset=UTF-8
+    content-length: '420'
+    correlation-id: 407ac318-026e-4c1b-bbc2-6758940afad2
+  :message: 
