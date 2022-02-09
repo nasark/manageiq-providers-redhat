@@ -1,7 +1,5 @@
 class ManageIQ::Providers::Redhat::InfraManager::Vm < ManageIQ::Providers::Ovirt::InfraManager::Vm
-  include_concern 'Operations'
   include_concern 'RemoteConsole'
-  include_concern 'Reconfigure'
   include_concern 'ManageIQ::Providers::Redhat::InfraManager::VmOrTemplateShared'
 
   supports :migrate do

@@ -13,7 +13,7 @@ VCR.configure do |config|
   config.cassette_library_dir = File.join(ManageIQ::Providers::Redhat::Engine.root, 'spec/vcr_cassettes')
 
   secrets = Rails.application.secrets
-  secrets.ovirt.each_key do |secret|
-    config.define_cassette_placeholder(secrets.ovirt_defaults[secret]) { secrets.ovirt[secret] }
+  secrets.redhat.each_key do |secret|
+    config.define_cassette_placeholder(secrets.redhat_defaults[secret]) { secrets.redhat[secret] }
   end
 end

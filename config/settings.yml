@@ -11,7 +11,6 @@
       :read_timeout: 1.hour
       :open_timeout: 1.minute
     :blacklisted_event_names: []
-  :ems_ovirt:
     :event_handling:
       :event_groups:
         :console:

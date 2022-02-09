@@ -1,3 +1,5 @@
+ManageIQ::Providers::Ovirt::InfraManager::Host.include(ActsAsStiLeafClass)
+
 class ManageIQ::Providers::Redhat::InfraManager::Host < ManageIQ::Providers::Ovirt::InfraManager::Host
   def provider_object(connection = nil)
     ManageIQ::Providers::Redhat::InfraManager::OvirtServices::V4.new(:ems => ext_management_system).get_host_proxy(self, connection)

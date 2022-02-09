@@ -1,3 +1,3 @@
-# FactoryBot.define do
-#   factory :datacenter_redhat, :class => 'ManageIQ::Providers::Redhat::InfraManager::Datacenter'
-# end
+FactoryBot.define do
+  factory :datacenter_redhat, :class => 'ManageIQ::Providers::Redhat::InfraManager::Datacenter'
+end

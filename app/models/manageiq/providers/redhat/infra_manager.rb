@@ -22,7 +22,6 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
   require_nested  :Vm
   require_nested  :DistributedVirtualSwitch
   include_concern :ApiIntegration
-  include_concern :VmImport
   include_concern :AdminUI
 
   include HasNetworkManagerMixin
@@ -40,6 +39,48 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
     # Link to oVirt Admin UI is supported for Engine version 4.1.8 or better.
     # See https://bugzilla.redhat.com/1512989 for details.
     unsupported_reason_add(:admin_ui, _('Admin UI is supported on version >= 4.1.8')) unless version_at_least?('4.1.8')
+  end
+
+  def ensure_managers
+    return unless enabled
+    ensure_network_manager
+    if network_manager
+      network_manager.name = "#{name} Network Manager"
+      network_manager.zone_id = zone_id
+      network_manager.provider_region = provider_region
+      network_manager.tenant_id = tenant_id
+      network_manager.save!
+    end
+  end
+
+  def ensure_network_manager
+    providers = ovirt_services.collect_external_network_providers
+
+    unless providers.blank?
+      providers = providers.sort_by(&:name)
+      auth_url = providers.first.authentication_url
+    end
+
+    if auth_url
+      if network_manager.nil?
+        ems_was_removed = false
+
+        if id # before update
+          ems = ExtManagementSystem.find_by(:id => id)
+          ems_was_removed = ems.nil? || !ems.enabled
+        end
+
+        unless ems_was_removed
+          build_network_manager(:type => 'ManageIQ::Providers::Redhat::NetworkManager')
+        end
+      end
+
+      if network_manager
+        populate_network_manager_connectivity(auth_url)
+      end
+    elsif network_manager
+      network_manager.destroy_queue
+    end
   end
 
   def self.ems_type

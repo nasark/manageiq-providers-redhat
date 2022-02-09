@@ -1,5 +1,6 @@
 require 'fog/openstack'
 require_relative 'ovirt_refresher_spec_common'
+require 'byebug'
 
 describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
   include OvirtRefresherSpecCommon

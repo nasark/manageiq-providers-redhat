@@ -216,11 +216,11 @@ class ManageIQ::Providers::Redhat::ConnectionManager
   #
   # Returns the settings of the connection manager.
   #
-  # @return [Object] The `ems.ems_ovirt.connection_manager` branch of the settings.
+  # @return [Object] The `ems.ems_redhat.connection_manager` branch of the settings.
   #
   # @api private
   #
   def settings
-    ::Settings.ems.ems_ovirt.connection_manager
+    ::Settings.ems.ems_redhat.connection_manager
   end
 end

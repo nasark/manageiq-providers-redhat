@@ -290,11 +290,11 @@ describe ManageIQ::Providers::Redhat::InfraManager do
       ems_event = FactoryBot.create(:ems_event, :event_type => "VM_MIGRATION_FAILED_FROM_TO", :message => "migration failed", :ext_management_system => @ems, :vm => @vm, :timestamp => Time.zone.now + 1)
       @vm.ems_events << ems_event
 
-      expect { @ems.vm_migrate(@vm, {:host => "/ovirt-engine/api/hosts/11089411-53a2-4337-8613-7c1d411e8ae8"}, 1) }.to raise_error(ManageIQ::Providers::Redhat::InfraManager::OvirtServices::Error)
+      expect { @ems.vm_migrate(@vm, {:host => "/ovirt-engine/api/hosts/11089411-53a2-4337-8613-7c1d411e8ae8"}, 1) }.to raise_error(ManageIQ::Providers::Ovirt::InfraManager::OvirtServices::Error)
     end
 
     it "never receives an event" do
-      expect { @ems.vm_migrate(@vm, {:host => "/ovirt-engine/api/hosts/11089411-53a2-4337-8613-7c1d411e8ae8"}, 1, 2) }.to raise_error(ManageIQ::Providers::Redhat::InfraManager::OvirtServices::Error)
+      expect { @ems.vm_migrate(@vm, {:host => "/ovirt-engine/api/hosts/11089411-53a2-4337-8613-7c1d411e8ae8"}, 1, 2) }.to raise_error(ManageIQ::Providers::Ovirt::InfraManager::OvirtServices::Error)
     end
   end
 end
