@@ -7,7 +7,7 @@ require_relative 'ovirt_refresher_spec_common'
 describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
   include OvirtRefresherSpecCommon
 
-  let(:orig_yml_path) { 'spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_recording_for_mod.yml'.freeze }
+  let(:orig_yml_path) { 'spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_recording_for_mod.yml'.freeze }
 
   before(:each) do
     init_defaults
@@ -46,8 +46,8 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
     # end
     # 14.times { rec_mod.add_template_with_inv }
 
-    # File.write('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/tmp1.yml', rec_mod.yml.to_yaml)
-    # @rec_yml = YAML.load_file('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/tmp1.yml')
+    # File.write('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/tmp1.yml', rec_mod.yml.to_yaml)
+    # @rec_yml = YAML.load_file('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/tmp1.yml')
 
     @rec_yml ||= rec_mod.yml
     allow(Spec::Support::OvirtSDK::ConnectionVCR).to receive(:new).with(kind_of(Hash)) do |opts|

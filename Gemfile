@@ -1,4 +1,4 @@
-# Declare your gem's dependencies in manageiq-providers-redhat.gemspec.
+# Declare your gem's dependencies in manageiq-providers-red_hat_virtualization.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
 gemspec

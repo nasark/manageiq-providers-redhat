@@ -7,7 +7,7 @@
 
 <!-- [![Chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ManageIQ/manageiq-providers-ovirt?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) -->
 
-ManageIQ plugin for the Redhat provider.
+ManageIQ plugin for the Red Hat Virtualization provider.
 
 ## Development
 

@@ -6,7 +6,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
 
   before(:each) do
     init_defaults(:hostname => 'pluto-vdsg.eng.lab.tlv.redhat.com', :port => 443)
-    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_recording.yml')
+    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_recording.yml')
   end
 
   it "will perform a full refresh on v4.1" do

@@ -4,7 +4,7 @@ require_relative 'ovirt_refresher_spec_common'
 describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
   include OvirtRefresherSpecCommon
 
-  let(:orig_yml_path) { 'spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_recording_for_mod.yml'.freeze }
+  let(:orig_yml_path) { 'spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_recording_for_mod.yml'.freeze }
 
   before(:each) do
     init_defaults

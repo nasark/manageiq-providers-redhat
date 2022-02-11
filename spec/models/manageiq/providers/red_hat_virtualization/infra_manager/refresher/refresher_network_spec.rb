@@ -7,7 +7,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
 
   before(:each) do
     init_defaults(:hostname => 'engine-43.lab.inz.redhat.com', :port => 443)
-    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/refresher_multi_datacenter_network_recording.yml')
+    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/refresher_multi_datacenter_network_recording.yml')
   end
 
   it "will perform a full refresh" do

@@ -2,16 +2,16 @@
 lib = File.expand_path('../lib', __FILE__)
 
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'manageiq/providers/redhat/version'
+require 'manageiq/providers/red_hat_virtualization/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "manageiq-providers-redhat"
+  spec.name          = "manageiq-providers-red_hat_virtualization"
   spec.version       = ManageIQ::Providers::Redhat::VERSION
   spec.authors       = ["ManageIQ Authors"]
 
   spec.summary       = "ManageIQ plugin for the Redhat provider."
   spec.description   = "ManageIQ plugin for the Redhat provider."
-  spec.homepage      = "https://github.com/ManageIQ/manageiq-providers-redhat"
+  spec.homepage      = "https://github.com/ManageIQ/manageiq-providers-red_hat_virtualization"
   spec.license       = "Apache-2.0"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

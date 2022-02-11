@@ -6,7 +6,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
 
   before(:each) do
     init_defaults(:hostname => 'engine-43.lab.inz.redhat.com', :ipaddress => '192.168.178.44', :port => 443)
-    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/refresher_reconfigure_with_restart_needed_recording.yml')
+    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/refresher_reconfigure_with_restart_needed_recording.yml')
   end
 
   it 'cores per socket decrease needs a restart' do
@@ -28,7 +28,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
   it 'cores increase does not need a restart' do
     allow(Spec::Support::OvirtSDK::ConnectionVCR).to receive(:new).with(kind_of(Hash)) do |opts|
       Spec::Support::OvirtSDK::ConnectionVCR.new(opts,
-                                                 'spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/refresher_reconfigure_with_no_restart_needed_recording.yml',
+                                                 'spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/refresher_reconfigure_with_no_restart_needed_recording.yml',
                                                  false)
     end
     EmsRefresh.refresh(@ems)
