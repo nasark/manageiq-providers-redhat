@@ -7,13 +7,13 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
 
   before(:each) do
     init_defaults
-    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_graph_target_template.yml')
+    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_graph_target_template.yml')
   end
 
   it 'refreshes template host properly when placement_policy defined' do
     allow(Spec::Support::OvirtSDK::ConnectionVCR).to receive(:new).with(kind_of(Hash)) do |opts|
       Spec::Support::OvirtSDK::ConnectionVCR.new(opts,
-                                                 'spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_graph_target_template_with_host.yml',
+                                                 'spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_graph_target_template_with_host.yml',
                                                  false)
     end
     EmsRefresh.refresh(@ems)

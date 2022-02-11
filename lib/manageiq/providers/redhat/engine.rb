@@ -16,7 +16,7 @@ module ManageIQ
         end
 
         def self.plugin_name
-          _('Redhat Provider')
+          _('Red Hat Virtualization Provider')
         end
 
         def self.init_loggers

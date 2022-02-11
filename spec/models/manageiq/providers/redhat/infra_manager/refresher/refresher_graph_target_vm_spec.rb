@@ -7,7 +7,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
 
   before(:each) do
     init_defaults
-    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_deleted_snapshot.yml')
+    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_deleted_snapshot.yml')
 
     @ovirt_service_inventory = ManageIQ::Providers::Redhat::InfraManager::Inventory
     allow_any_instance_of(@ovirt_service_inventory)
@@ -18,7 +18,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
   it 'does not change the vm when target refresh after full refresh' do
     allow(Spec::Support::OvirtSDK::ConnectionVCR).to receive(:new).with(kind_of(Hash)) do |opts|
       Spec::Support::OvirtSDK::ConnectionVCR.new(opts,
-                                                 'spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_after_full.yml',
+                                                 'spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_after_full.yml',
                                                  false)
     end
     EmsRefresh.refresh(@ems)
@@ -37,7 +37,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
   it 'refreshes vm hosts properly' do
     allow(Spec::Support::OvirtSDK::ConnectionVCR).to receive(:new).with(kind_of(Hash)) do |opts|
       Spec::Support::OvirtSDK::ConnectionVCR.new(opts,
-                                                 'spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_with_host.yml',
+                                                 'spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_with_host.yml',
                                                  false)
     end
     EmsRefresh.refresh(@ems)
@@ -68,7 +68,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
   it 'refreshes successfuly after vm removal' do
     allow(Spec::Support::OvirtSDK::ConnectionVCR).to receive(:new).with(kind_of(Hash)) do |opts|
       Spec::Support::OvirtSDK::ConnectionVCR.new(opts,
-                                                 'spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_removal.yml',
+                                                 'spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/ovirt_sdk_refresh_graph_target_vm_removal.yml',
                                                  false)
     end
     EmsRefresh.refresh(@ems)

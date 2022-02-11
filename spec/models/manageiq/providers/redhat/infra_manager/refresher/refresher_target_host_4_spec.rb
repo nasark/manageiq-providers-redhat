@@ -7,7 +7,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Refresher do
 
   before(:each) do
     init_defaults(:hostname => 'pluto-vdsg.eng.lab.tlv.redhat.com', :ipaddress => '10.35.19.13', :port => 443)
-    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/red_hat_virtualization/infra_manager/refresh/refresher_target_host.yml')
+    init_connection_vcr('spec/vcr_cassettes/manageiq/providers/redhat/infra_manager/refresh/refresher_target_host.yml')
 
     @ems.default_endpoint.path = "/ovirt-engine/api"
     stub_settings_merge(
