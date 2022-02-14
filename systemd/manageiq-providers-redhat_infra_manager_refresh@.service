@@ -1,7 +1,7 @@
 [Unit]
-PartOf=manageiq-providers-red_hat_virtualization_infra_manager_refresh.target
+PartOf=manageiq-providers-redhat_infra_manager_refresh.target
 [Install]
-WantedBy=manageiq-providers-red_hat_virtualization_infra_manager_refresh.target
+WantedBy=manageiq-providers-redhat_infra_manager_refresh.target
 [Service]
 WorkingDirectory=/var/www/miq/vmdb
 Environment=BUNDLER_GROUPS=manageiq_default,ui_dependencies
@@ -10,4 +10,4 @@ ExecStart=/usr/bin/ruby lib/workers/bin/run_single_worker.rb ManageIQ::Providers
 User=manageiq
 Restart=no
 Type=notify
-Slice=manageiq-providers-red_hat_virtualization_infra_manager_refresh.slice
+Slice=manageiq-providers-redhat_infra_manager_refresh.slice
