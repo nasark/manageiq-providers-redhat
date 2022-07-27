@@ -1,3 +1,5 @@
+ManageIQ::Providers::Ovirt::InfraManager::Template.include(ActsAsStiLeafClass)
+
 class ManageIQ::Providers::Redhat::InfraManager::Template < ManageIQ::Providers::Ovirt::InfraManager::Template
   include_concern 'ManageIQ::Providers::Redhat::InfraManager::VmOrTemplateShared'
 

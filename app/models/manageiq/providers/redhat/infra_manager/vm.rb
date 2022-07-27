@@ -1,3 +1,5 @@
+ManageIQ::Providers::Ovirt::InfraManager::Vm.include(ActsAsStiLeafClass)
+
 class ManageIQ::Providers::Redhat::InfraManager::Vm < ManageIQ::Providers::Ovirt::InfraManager::Vm
   include_concern 'RemoteConsole'
   include_concern 'ManageIQ::Providers::Redhat::InfraManager::VmOrTemplateShared'
