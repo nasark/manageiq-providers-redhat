@@ -4,7 +4,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Vm do
   let(:host) { FactoryBot.create(:host_redhat, :ext_management_system => ems) }
   let(:vm)   { FactoryBot.create(:vm_redhat, :ext_management_system => ems, :host => host) }
 
-  context "#is_available?" do
+  context "#supports?" do
     let(:power_state_on)        { "up" }
     let(:power_state_suspended) { "down" }
 
