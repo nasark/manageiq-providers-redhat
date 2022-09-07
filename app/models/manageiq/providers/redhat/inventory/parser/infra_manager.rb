@@ -123,7 +123,7 @@ class ManageIQ::Providers::Redhat::Inventory::Parser::InfraManager < ManageIQ::P
         :uid_ems          => vm.id,
         :connection_state => "connected",
         :vendor           => "redhat",
-        :name             => URI.decode(vm.name),
+        :name             => URI::DEFAULT_PARSER.unescape(vm.name),
         :location         => "#{vm.id}.ovf",
         :template         => template,
         :memory_limit     => extract_vm_memory_policy(vm, :max),
