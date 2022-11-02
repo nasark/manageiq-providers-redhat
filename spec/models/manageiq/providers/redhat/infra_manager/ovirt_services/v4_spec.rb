@@ -277,8 +277,10 @@ describe ManageIQ::Providers::Redhat::InfraManager::OvirtServices::V4 do
         edit_spec = spec['networkAdapters'][:edit].first
         expect(nics_service).to receive(:nic_service).twice.with(edit_spec[:nic_id]).and_return(nic_service)
         expect(nic_service).to receive(:deactivate)
-        expect(nic_service).to receive(:update).with(:name         => edit_spec[:name],
-                                                     :vnic_profile => {:id => edit_spec[:vnic_profile_id]})
+        expect(nic_service).to receive(:update).with({
+                                                        :name         => edit_spec[:name],
+                                                        :vnic_profile => {:id => edit_spec[:vnic_profile_id]}
+                                                      })
         expect(nic_service).to receive(:activate)
 
         subject
@@ -435,7 +437,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::OvirtServices::V4 do
       subject(:reconfigure_vm) { ems.vm_reconfigure(vm, :spec => spec) }
       context 'delete backing' do
         it 'sends a remove command to the appropriate disk attachment' do
-          expect(disk_attachment_service_1).to receive(:remove).with(:detach_only => false)
+          expect(disk_attachment_service_1).to receive(:remove).with({:detach_only => false})
           subject
         end
       end
@@ -443,7 +445,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::OvirtServices::V4 do
       context 'detach without removing disk' do
         let(:delete_backing) { false }
         it 'sends a remove command to the appropriate disk attachment' do
-          expect(disk_attachment_service_1).to receive(:remove).with(:detach_only => true)
+          expect(disk_attachment_service_1).to receive(:remove).with({:detach_only => true})
           subject
         end
       end

@@ -87,7 +87,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Provision::StateMachine do
     def test_autostart_destination_with_use_cloud_init
       task.phase_context[:boot_with_cloud_init] = true
 
-      expect(rhevm_vm).to receive(:start).with(:use_cloud_init => an_instance_of(CustomAttribute))
+      expect(rhevm_vm).to receive(:start).with({:use_cloud_init => an_instance_of(CustomAttribute)})
 
       call_method
     end
@@ -95,7 +95,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Provision::StateMachine do
     def test_autostart_destination_without_use_cloud_init
       task.phase_context.delete(:boot_with_cloud_init)
 
-      expect(rhevm_vm).not_to receive(:start).with(:use_cloud_init => an_instance_of(CustomAttribute))
+      expect(rhevm_vm).not_to receive(:start).with({:use_cloud_init => an_instance_of(CustomAttribute)})
 
       call_method
     end
@@ -103,7 +103,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Provision::StateMachine do
     def test_autostart_destination_with_sysprep
       task.phase_context[:boot_with_sysprep] = true
 
-      expect(rhevm_vm).to receive(:start).with(:use_sysprep => an_instance_of(CustomAttribute))
+      expect(rhevm_vm).to receive(:start).with({:use_sysprep => an_instance_of(CustomAttribute)})
 
       call_method
     end
@@ -111,7 +111,7 @@ describe ManageIQ::Providers::Redhat::InfraManager::Provision::StateMachine do
     def test_autostart_destination_without_sysyprep
       task.phase_context.delete(:boot_with_sysprep)
 
-      expect(rhevm_vm).not_to receive(:start).with(:use_sysprep => an_instance_of(CustomAttribute))
+      expect(rhevm_vm).not_to receive(:start).with({:use_sysprep => an_instance_of(CustomAttribute)})
 
       call_method
     end
