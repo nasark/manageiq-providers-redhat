@@ -1,4 +1,40 @@
 class ManageIQ::Providers::Redhat::Inventory::Parser::InfraManager < ManageIQ::Providers::Ovirt::Inventory::Parser::InfraManager
+  def storagedomains
+    collector.storagedomains.each do |storagedomain|
+      storage_type = storagedomain.dig(:storage, :type).upcase
+      ems_ref = ManageIQ::Providers::Redhat::InfraManager.make_ems_ref(storagedomain.try(:href))
+      location = case storage_type
+                 when 'LOCALFS', 'ISO'
+                   ems_ref
+                 when 'NFS', 'GLUSTERFS'
+                   "#{storagedomain.dig(:storage, :address)}:#{storagedomain.dig(:storage, :path)}"
+                 else
+                   storagedomain.dig(:storage, :volume_group, :id)
+                 end
+
+      free        = storagedomain.try(:available).to_i
+      used        = storagedomain.try(:used).to_i
+      total       = free + used
+      committed   = storagedomain.try(:committed).to_i
+
+      storage_domain_type = storagedomain.dig(:type, :downcase)
+      type = storage_domain_type == 'iso' ? "IsoDatastore" : "Storage"
+
+      persister.storages.find_or_build(ems_ref).assign_attributes(
+        :ems_ref             => ems_ref,
+        :name                => storagedomain.try(:name),
+        :store_type          => storage_type,
+        :storage_domain_type => storage_domain_type,
+        :total_space         => total,
+        :free_space          => free,
+        :uncommitted         => total - committed,
+        :multiplehostaccess  => true,
+        :location            => location,
+        :master              => storagedomain.try(:master),
+        :type                => "ManageIQ::Providers::Redhat::InfraManager::#{type}"
+      )
+    end
+  end
 
   def datacenters
     collector.datacenters.each do |datacenter|
