@@ -23,7 +23,6 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
   require_nested  :Template
   require_nested  :Vm
   require_nested  :DistributedVirtualSwitch
-  include_concern :ApiIntegration
 
   has_one :network_manager,
           :foreign_key => :parent_ems_id,
@@ -59,5 +58,13 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
 
   def self.display_name(number = 1)
     n_('Infrastructure Provider (Red Hat)', 'Infrastructure Providers (Red Hat)', number)
+  end
+
+  def self.ems_settings
+    ::Settings.ems.ems_redhat
+  end
+
+  def self.ems_refresh_settings
+    ::Settings.ems_refresh.rhevm
   end
 end
