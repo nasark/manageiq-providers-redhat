@@ -29,6 +29,7 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
           :foreign_key => :parent_ems_id,
           :class_name  => "ManageIQ::Providers::Redhat::NetworkManager",
           :autosave    => true,
+          :inverse_of  => :parent_manager,
           :dependent   => :destroy
 
   supports :catalog
@@ -42,6 +43,14 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
 
   def self.description
     @description ||= "Red Hat Virtualization".freeze
+  end
+
+  def self.vm_vendor
+    "redhat".freeze
+  end
+
+  def self.host_vendor
+    "redhat".freeze
   end
 
   def self.catalog_types
