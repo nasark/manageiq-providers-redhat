@@ -23,6 +23,7 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
   require_nested  :Template
   require_nested  :Vm
   require_nested  :DistributedVirtualSwitch
+  require_nested  :ExternalDistributedVirtualSwitch
 
   has_one :network_manager,
           :foreign_key => :parent_ems_id,
