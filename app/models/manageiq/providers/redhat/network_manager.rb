@@ -13,8 +13,6 @@ class ManageIQ::Providers::Redhat::NetworkManager < ManageIQ::Providers::Ovirt::
   include ManageIQ::Providers::Openstack::ManagerMixin
   include SupportsFeatureMixin
 
-  supports :create
-
   def self.ems_type
     @ems_type ||= "redhat_network".freeze
   end
