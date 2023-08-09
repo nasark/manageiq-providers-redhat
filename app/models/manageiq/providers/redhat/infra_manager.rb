@@ -25,6 +25,13 @@ class ManageIQ::Providers::Redhat::InfraManager < ManageIQ::Providers::Ovirt::In
   require_nested  :DistributedVirtualSwitch
   require_nested  :ExternalDistributedVirtualSwitch
 
+  has_many :cloud_tenants, :foreign_key => :ems_id, :dependent => :destroy
+  has_many :vm_and_template_ems_custom_fields, :through => :vms_and_templates, :source => :ems_custom_attributes
+  has_many :external_distributed_virtual_switches, :dependent => :destroy, :foreign_key => :ems_id, :inverse_of => :ext_management_system
+  has_many :external_distributed_virtual_lans, -> { distinct }, :through => :external_distributed_virtual_switches, :source => :lans
+  has_many :iso_datastores, :dependent => :destroy, :foreign_key => :ems_id, :inverse_of => :ext_management_system
+  has_many :iso_images, :through => :storages
+
   has_one :network_manager,
           :foreign_key => :parent_ems_id,
           :class_name  => "ManageIQ::Providers::Redhat::NetworkManager",
