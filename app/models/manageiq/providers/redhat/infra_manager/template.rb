@@ -1,7 +1,7 @@
 ManageIQ::Providers::Ovirt::InfraManager::Template.include(ActsAsStiLeafClass)
 
 class ManageIQ::Providers::Redhat::InfraManager::Template < ManageIQ::Providers::Ovirt::InfraManager::Template
-  include_concern 'ManageIQ::Providers::Redhat::InfraManager::VmOrTemplateShared'
+  include ManageIQ::Providers::Redhat::InfraManager::VmOrTemplateShared
 
   supports :provisioning do
     if ext_management_system
