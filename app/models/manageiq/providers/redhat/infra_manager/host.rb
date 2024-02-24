@@ -6,9 +6,7 @@ class ManageIQ::Providers::Redhat::InfraManager::Host < ManageIQ::Providers::Ovi
   end
 
   supports :quick_stats do
-    unless ext_management_system.supports?(:quick_stats)
-      unsupported_reason_add(:quick_stats, 'RHV API version does not support quick_stats')
-    end
+    ext_management_system.unsupported_reason(:quick_stats)
   end
 
   def self.display_name(number = 1)
