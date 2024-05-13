@@ -1,4 +1,3 @@
-require 'ovirtsdk4'
 require 'yaml'
 
 module ManageIQ::Providers::Redhat::InfraManager::OvirtServices
@@ -11,6 +10,8 @@ module ManageIQ::Providers::Redhat::InfraManager::OvirtServices
     attr_reader :ext_management_system
 
     def initialize(args)
+      require 'ovirtsdk4'
+
       @ext_management_system = args[:ems]
     end
 
