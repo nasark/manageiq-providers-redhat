@@ -57,6 +57,7 @@
     :allow_targeted_refresh: true
   :redhat_network:
     :is_admin: false
+    :refresh_interval: 0
 :log:
   :level_rhevm: info
 :workers:
