@@ -4,6 +4,10 @@ class ManageIQ::Providers::Redhat::NetworkManager < ManageIQ::Providers::Ovirt::
   include ManageIQ::Providers::Openstack::ManagerMixin
   include SupportsFeatureMixin
 
+  class << self
+    delegate :refresh_ems, :to => ManageIQ::Providers::Redhat::InfraManager
+  end
+
   def self.ems_type
     @ems_type ||= "redhat_network".freeze
   end
